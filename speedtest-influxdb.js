@@ -2,7 +2,7 @@ const child_process = require('child_process')
 const Influx = require('influx')
 
 getSpeedtestResult = async function () {
-  const results = child_process.execSync('speedtest -f json')
+  const results = child_process.execSync('speedtest --accept-license --accept-gdpr -f json')
 
   return JSON.parse(results.toString('utf8'))
 }
