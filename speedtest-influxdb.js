@@ -2,7 +2,9 @@ const child_process = require('child_process')
 const Influx = require('influx')
 
 getSpeedtestResult = async function () {
-  const results = child_process.execSync('speedtest --accept-license --accept-gdpr -f json')
+  // Optionally specify server
+  const serverId = process.env.SPEEDTEST_SERVER_ID !== undefined ? `-s ${process.env.SPEEDTEST_SERVER_ID}` : ''
+  const results = child_process.execSync(`speedtest --accept-license --accept-gdpr -f json ${serverId}`)
 
   return JSON.parse(results.toString('utf8'))
 }
