@@ -2,6 +2,11 @@
 
 InfluxDB integration for the official Speedtest CLI
 
+## Installation
+
+* Install the official Speedtest CLI
+* Run `npm install`
+
 ## Usage
 
 ```
